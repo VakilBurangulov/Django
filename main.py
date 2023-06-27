@@ -75,15 +75,21 @@
 
 
 
-def str(s):
-    f = (''.join(reversed(s)))
-    if f == s:
-        print(True)
-    else:
-        print(False)
+# def str(s):
+#     f = (''.join(reversed(s)))
+#     if f == s:
+#         print(True)
+#     else:
+#         print(False)
+#
+# s = 'лепсспел'
+# str(s)
 
-s = 'лепсспел'
-str(s)
+
+
+
+
+
 
 
 

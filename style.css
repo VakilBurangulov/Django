@@ -17,5 +17,9 @@ h1{
 font-size:24px;
 font-style: italic;
 text-align: center;
-rext-shadow: green 2px 3px 4px;
+text-shadow: green 2px 3px 4px;
+}
+iframe{
+margin-left: 100px;
+margin-bottom: 100px;
 }
