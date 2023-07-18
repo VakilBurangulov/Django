@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
-{% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}Главная{% endblock %}
 
-{% block <title %}Главная{% endblock %}
-<body>
 {% block content %}
 <ul class="nav nav-pills sticky-top bg-white nav-fill">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="index.html">
-      <span style="font-weight: bold;">Главная</span>
+      <span style="font-weight: bold;">Главная</span>{% load static %}
+
     </a>
   </li>
   <li class="nav-item">
@@ -210,7 +207,6 @@
     </div>
   </nav>
 </footer>
-</body>
 {% endblock %}
 
 </html>
