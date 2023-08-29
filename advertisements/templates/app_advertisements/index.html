@@ -5,7 +5,7 @@
 {% block content %}
 <ul class="nav nav-pills sticky-top bg-white nav-fill">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="index.html">
+    <a class="nav-link active" aria-current="page" href="{% url 'main-page' %}">
       <span style="font-weight: bold;">Главная</span>{% load static %}
 
     </a>
@@ -19,16 +19,18 @@
       <span style="font-weight: bold;">Разместить объявление</span>
     </a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="register.html">
-      <span style="font-weight: bold;">Регистрация</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'login' %}">
-      <span style="font-weight: bold;">Войти</span>
-    </a>
-  </li>
+      {% if not request.user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'register' %}">
+        <span style="font-weight: bold;">Регистрация</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'login' %}">
+        <span style="font-weight: bold;">Войти</span>
+      </a>
+    </li>
+    {% endif %}
   {% if request.user.is_authenticated %}
   <li class="nav-item">
     <a class="nav-link" href="{% url 'profile' %}">
@@ -36,7 +38,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="{% url 'logout' %}">
       <span style="font-weight: bold;">Выйти</span>
     </a>
   </li>
@@ -99,7 +101,7 @@
     <div class="card mb-2" style="max-width: 1200px; margin-top: 20px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <a href="advertisement.html" class="nav-link">
+          <a href="{{ adv.get_absolute_url }}" class="nav-link">
                          <img src="{% if adv.image %} {{ adv.image.url }} {% else %} {% static 'img/item.png' %} {% endif %}"
                         class="img-fluid rounded-start" alt="Card title">
           </a>
@@ -107,9 +109,9 @@
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">
-              <a href="advertisement.html" class="nav-link"><strong>{{ adv.title }}</strong></a>
+              <a href="{{ adv.get_absolute_url }}" class="nav-link"><strong>{{ adv.title }}</strong></a>
             </h5>
-            <a href="advertisement.html" class="nav-link">
+            <a href="{{ adv.get_absolute_url }}" class="nav-link">
               <p class="card-text">
                {{ adv.desctiption }}
               </p>
