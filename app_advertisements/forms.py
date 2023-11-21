@@ -10,7 +10,9 @@ class AdvertisementForm(forms.Form):
     auction = forms.BooleanField(required=False,
         widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
     )
-    image = forms.ImageField(
+    image = forms.ImageField(required=False,
         widget=forms.FileInput(attrs={'class': 'form-control form-control-lg'})
     )
+
+
 
